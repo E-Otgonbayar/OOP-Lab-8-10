@@ -156,7 +156,7 @@ int main() {
             i--;
         }
     }
-
+    cout << "Uussen dursiin too: " << shapeCount;
     // Талбайгаар эрэмбэлэх
     sort(shapes.begin(), shapes.end(), compareByArea);
 
