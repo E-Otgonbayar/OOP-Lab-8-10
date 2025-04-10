@@ -34,8 +34,8 @@ private:
     double radius;
 public:
     Circle(string n, double cx, double cy, double r) : Shape2D(n), radius(r) {
-        this->center[0] = cx;
-        this->center[1] = cy;
+        this->center[0] = cx;//this хувьсагч
+        this->center[1] = cy;//this хувьсагч
     }
 
     double getArea() const override {
@@ -60,10 +60,10 @@ private:
     double side;
 public:
     Square(string n, double topX, double topY, double s) : Shape2D(n), side(s) {
-        this->oroi.push_back({topX, topY});
-        this->oroi.push_back({topX + s, topY});
-        this->oroi.push_back({topX, topY - s});
-        this->oroi.push_back({topX + s, topY - s});
+        this->oroi.push_back({topX, topY});//this хувьсагч
+        this->oroi.push_back({topX + s, topY});//this хувьсагч
+        this->oroi.push_back({topX, topY - s});//this хувьсагч
+        this->oroi.push_back({topX + s, topY - s});//this хувьсагч
     }
 
     double getArea() const override {
@@ -92,9 +92,9 @@ private:
     double side;
 public:
     Triangle(string n, double topX, double topY, double s) : Shape2D(n), side(s) {
-        this->oroi.push_back({topX, topY});
-        this->oroi.push_back({topX - (s/2), topY - (sqrt(3)/2 * s)});
-        this->oroi.push_back({topX + (s/2), topY - (sqrt(3)/2 * s)});
+        this->oroi.push_back({topX, topY});//this хувьсагч
+        this->oroi.push_back({topX - (s/2), topY - (sqrt(3)/2 * s)});//this хувьсагч
+        this->oroi.push_back({topX + (s/2), topY - (sqrt(3)/2 * s)});//this хувьсагч
     }
 
     double getArea() const override {
