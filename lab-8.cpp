@@ -7,18 +7,18 @@ using namespace std;
 class Shape {
 protected:
     string name;
-    static int objectCount; // 1. Статик хувьсагч
+    static int objectCount;  // 1. Статик хувьсагч
 public:
     Shape(string n) : name(n) {
-        objectCount++; // Объект тоолно
+        objectCount++;  // Объект тоолно
     }
 
     virtual void display() const = 0;
     virtual double getArea() const = 0;
-    static int getObjectCount() { return objectCount; } // 2. Статик функц
+    static int getObjectCount() { return objectCount; }  // 2. Статик функц
 };
 
-int Shape::objectCount = 0; // 2. Гадаа утга оноох
+int Shape::objectCount = 0;  // 2. Гадаа утга оноох
 
 class Shape2D : public Shape {
 protected:
@@ -34,8 +34,8 @@ private:
     double radius;
 public:
     Circle(string n, double cx, double cy, double r) : Shape2D(n), radius(r) {
-        this->center[0] = cx;//this хувьсагч
-        this->center[1] = cy;//this хувьсагч
+        this->center[0] = cx; //this хувьсагч
+        this->center[1] = cy; //this хувьсагч
     }
 
     double getArea() const override {
@@ -60,10 +60,10 @@ private:
     double side;
 public:
     Square(string n, double topX, double topY, double s) : Shape2D(n), side(s) {
-        this->oroi.push_back({topX, topY});//this хувьсагч
-        this->oroi.push_back({topX + s, topY});//this хувьсагч
-        this->oroi.push_back({topX, topY - s});//this хувьсагч
-        this->oroi.push_back({topX + s, topY - s});//this хувьсагч
+        this->oroi.push_back({topX, topY}); //this хувьсагч
+        this->oroi.push_back({topX + s, topY}); //this хувьсагч
+        this->oroi.push_back({topX, topY - s}); //this хувьсагч
+        this->oroi.push_back({topX + s, topY - s}); //this хувьсагч
     }
 
     double getArea() const override {
@@ -93,8 +93,8 @@ private:
 public:
     Triangle(string n, double topX, double topY, double s) : Shape2D(n), side(s) {
         this->oroi.push_back({topX, topY});//this хувьсагч
-        this->oroi.push_back({topX - (s/2), topY - (sqrt(3)/2 * s)});//this хувьсагч
-        this->oroi.push_back({topX + (s/2), topY - (sqrt(3)/2 * s)});//this хувьсагч
+        this->oroi.push_back({topX - (s/2), topY - (sqrt(3)/2 * s)}); //this хувьсагч
+        this->oroi.push_back({topX + (s/2), topY - (sqrt(3)/2 * s)}); //this хувьсагч
     }
 
     double getArea() const override {
@@ -116,12 +116,12 @@ public:
     }
 };
 
-// Талбайгаар эрэмбэлэх функц
+//  Талбайгаар эрэмбэлэх функц
 bool compareByArea(const Shape* a, const Shape* b) {
     return a->getArea() < b->getArea();
 }
 
-// Приметерээр эрэмбэлэх функц (хүсвэл хэрэглэж болно)
+//  Приметерээр эрэмбэлэх функц (хүсвэл хэрэглэж болно)
 bool compareByPerimeter(const Shape* a, const Shape* b) {
     return a->getPerimeter() < b->getPerimeter();
 }
@@ -169,10 +169,10 @@ int main() {
         }
     }
 
-    // Талбайгаар эрэмбэлэх
+    //  Талбайгаар эрэмбэлэх
     sort(shapes.begin(), shapes.end(), compareByArea);
 
-    // Хэвлэх
+    //  Хэвлэх
     cout << "\nТалбайгаар эрэмбэлэгдсэн дүрсүүд:\n";
     for (const auto& shape : shapes) {
         shape->display();
@@ -180,7 +180,7 @@ int main() {
 
     cout << "Нийт үүссэн объектын тоо: " << Shape::getObjectCount() << "\n";
 
-    // Санах ой чөлөөлөх
+    //  Санах ой чөлөөлөх
     for (auto shape : shapes) {
         delete shape;
     }
